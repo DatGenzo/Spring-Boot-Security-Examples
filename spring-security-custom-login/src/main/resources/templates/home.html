@@ -1,0 +1,98 @@
+<!doctype html>
+<html
+    lang="vi"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/default}"
+>
+<head>
+    <title>Trang chủ</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="p-4 p-md-5 bg-white rounded shadow-sm mb-4">
+        <h1 class="display-6 fw-bold">
+            Custom Login với Spring Boot 4
+        </h1>
+
+        <p class="lead mb-0">
+            Đăng nhập thành công bằng username hoặc email.
+        </p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h2 class="h5 mb-0">
+                Thông tin người dùng
+            </h2>
+        </div>
+
+        <div class="card-body">
+            <div class="row align-items-center g-4">
+                <div class="col-md-auto text-center">
+                    <img
+                        class="profile-avatar"
+                        th:src="${profile.images}"
+                        th:alt="${profile.fullName}"
+                    >
+                </div>
+
+                <div class="col">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4">Họ tên</dt>
+
+                        <dd
+                            class="col-sm-8"
+                            th:text="${profile.fullName}"
+                        >
+                            Họ tên
+                        </dd>
+
+                        <dt class="col-sm-4">Username</dt>
+
+                        <dd
+                            class="col-sm-8"
+                            th:text="${profile.username}"
+                        >
+                            username
+                        </dd>
+
+                        <dt class="col-sm-4">Email</dt>
+
+                        <dd
+                            class="col-sm-8"
+                            th:text="${profile.email}"
+                        >
+                            email
+                        </dd>
+
+                        <dt class="col-sm-4">Role</dt>
+
+                        <dd class="col-sm-8">
+                            <span
+                                class="badge text-bg-primary"
+                                th:text="${profile.roleName}"
+                            >
+                                ROLE
+                            </span>
+                        </dd>
+
+                        <dt class="col-sm-4">Trạng thái</dt>
+
+                        <dd class="col-sm-8">
+                            <span
+                                class="badge text-bg-success"
+                                th:if="${profile.enabled}"
+                            >
+                                Đang hoạt động
+                            </span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

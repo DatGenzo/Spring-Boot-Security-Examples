@@ -1,0 +1,36 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="240"
+    height="240"
+    viewBox="0 0 240 240"
+>
+    <rect
+        width="240"
+        height="240"
+        rx="120"
+        fill="#0dcaf0"
+    />
+
+    <circle
+        cx="120"
+        cy="82"
+        r="44"
+        fill="#ffffff"
+    />
+
+    <path
+        d="M48 212c5-49 33-78 72-78s67 29 72 78"
+        fill="#ffffff"
+    />
+
+    <text
+        x="120"
+        y="228"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="16"
+        fill="#084298"
+    >
+        USER
+    </text>
+</svg>

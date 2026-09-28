@@ -1,0 +1,32 @@
+html,
+body {
+    min-height: 100%;
+}
+
+.header-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.profile-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e9ecef;
+    border: 4px solid #0d6efd;
+}
+
+.card {
+    border: 0;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding-top: 1rem;
+    }
+}

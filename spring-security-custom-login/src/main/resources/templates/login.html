@@ -1,0 +1,98 @@
+<!doctype html>
+<html
+    lang="vi"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/default}"
+>
+<head>
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="row justify-content-center py-4">
+        <div class="col-md-7 col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h1 class="h4 mb-0">
+                        Đăng nhập tùy chỉnh
+                    </h1>
+                </div>
+
+                <div class="card-body">
+                    <div
+                        class="alert alert-danger"
+                        th:if="${param.error}"
+                    >
+                        Username, email hoặc mật khẩu không đúng.
+                    </div>
+
+                    <div
+                        class="alert alert-success"
+                        th:if="${param.logout}"
+                    >
+                        Đăng xuất thành công.
+                    </div>
+
+                    <form
+                        method="post"
+                        th:action="@{/login}"
+                    >
+                        <div class="mb-3">
+                            <label
+                                for="username"
+                                class="form-label"
+                            >
+                                Username hoặc email
+                            </label>
+
+                            <input
+                                id="username"
+                                name="username"
+                                type="text"
+                                class="form-control"
+                                placeholder="Nhập username hoặc email"
+                                autocomplete="username"
+                                required
+                                autofocus
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label
+                                for="password"
+                                class="form-label"
+                            >
+                                Mật khẩu
+                            </label>
+
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                class="form-control"
+                                placeholder="Nhập mật khẩu"
+                                autocomplete="current-password"
+                                required
+                            >
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary w-100"
+                        >
+                            Đăng nhập
+                        </button>
+                    </form>
+                </div>
+
+                <div class="card-footer small text-muted">
+                    Có thể đăng nhập bằng username hoặc email.
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

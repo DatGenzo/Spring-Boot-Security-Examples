@@ -1,0 +1,34 @@
+<!doctype html>
+<html
+    lang="vi"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/default}"
+>
+<head>
+    <title>Trang quản trị</title>
+</head>
+
+<body>
+<main layout:fragment="content">
+    <div class="alert alert-primary shadow-sm">
+        <h1 class="h3">Trang quản trị</h1>
+
+        <p class="mb-0">
+            Chỉ tài khoản có quyền ROLE_ADMIN
+            mới được truy cập trang này.
+        </p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <strong>Administrator:</strong>
+
+            <span th:text="${profile.fullName}">
+                Administrator
+            </span>
+        </div>
+    </div>
+</main>
+</body>
+</html>

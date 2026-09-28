@@ -1,0 +1,33 @@
+<!doctype html>
+<html
+  lang="vi"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head
+    th:replace="~{layouts/layout :: head('Trang quản trị')}"
+  ></head>
+
+  <body>
+    <header
+      th:replace="~{fragments/header :: header}"
+    ></header>
+
+    <main class="container">
+      <section class="panel">
+        <span class="badge admin">
+          ROLE_ADMIN
+        </span>
+
+        <h1>Trang quản trị</h1>
+
+        <p>
+          Chỉ tài khoản có vai trò ADMIN mới truy cập được.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      Đỗ Thành Đạt – MSSV: 24110192
+    </footer>
+  </body>
+</html>

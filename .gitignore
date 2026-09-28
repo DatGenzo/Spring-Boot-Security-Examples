@@ -1,0 +1,25 @@
+# Maven
+**/target/
+*.log
+
+# Secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# IDE
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+hs_err_pid*
+.env

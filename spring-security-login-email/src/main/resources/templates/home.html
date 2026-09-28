@@ -1,0 +1,39 @@
+<!doctype html>
+<html
+  lang="vi"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head
+    th:replace="~{layouts/layout :: head('Trang chủ')}"
+  ></head>
+
+  <body>
+    <header
+      th:replace="~{fragments/header :: header}"
+    ></header>
+
+    <main class="container">
+      <section class="panel">
+        <span class="badge">
+          VÍ DỤ 1
+        </span>
+
+        <h1>Đăng nhập bằng Email</h1>
+
+        <p>
+          Spring Boot 4.1.1, Spring Security 7,
+          Thymeleaf, MapStruct và SQL Server.
+        </p>
+
+        <p>
+          Tài khoản đã được xác thực và lưu trong
+          Spring Security Session.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      Đỗ Thành Đạt – MSSV: 24110192
+    </footer>
+  </body>
+</html>
