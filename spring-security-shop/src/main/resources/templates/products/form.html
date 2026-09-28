@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head><title th:text="${creating ? 'Thêm Product' : 'Sửa Product'}">Product</title></head>
+<body>
+<main layout:fragment="content">
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h1 class="h4 mb-0" th:text="${creating ? 'Thêm Product' : 'Sửa Product'}"></h1>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" th:object="${productDTO}"
+                  th:action="${creating} ? @{/products/create} : @{/products/edit/{id}(id=${productDTO.id})}">
+                <div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+                    <div th:each="error : ${#fields.globalErrors()}" th:text="${error}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Tên Product</label>
+                    <input class="form-control" th:field="*{name}">
+                    <div class="text-danger" th:errors="*{name}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mô tả</label>
+                    <textarea class="form-control" rows="5" th:field="*{description}"></textarea>
+                    <div class="text-danger" th:errors="*{description}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Giá</label>
+                    <input class="form-control" type="number" min="0" step="0.01" th:field="*{price}">
+                    <div class="text-danger" th:errors="*{price}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ảnh JPG, PNG hoặc WEBP</label>
+                    <input class="form-control" type="file" name="image"
+                           accept="image/jpeg,image/png,image/webp">
+                </div>
+                <div class="mb-3" th:if="${productDTO.imageUrl != null}">
+                    <div class="form-label">Ảnh hiện tại</div>
+                    <img class="product-preview" th:src="${productDTO.imageUrl}"
+                         th:alt="${productDTO.name}">
+                </div>
+                <button class="btn btn-primary">Lưu</button>
+                <a class="btn btn-secondary" th:href="@{/products}">Hủy</a>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

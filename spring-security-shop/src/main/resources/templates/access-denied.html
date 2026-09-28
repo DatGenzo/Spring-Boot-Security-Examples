@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head><title>Không có quyền truy cập</title></head>
+<body>
+<main layout:fragment="content">
+    <div class="alert alert-danger shadow-sm">
+        <h1 class="h3">Không có quyền truy cập</h1>
+        <p>Tài khoản hiện tại không được phép truy cập chức năng này.</p>
+        <a class="btn btn-primary" th:href="@{/}">Về Dashboard</a>
+    </div>
+</main>
+</body>
+</html>

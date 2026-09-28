@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head><title>Đăng ký</title></head>
+<body>
+<main layout:fragment="content">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-sm">
+                <div class="card-header"><h1 class="h4 mb-0">Đăng ký tài khoản</h1></div>
+                <div class="card-body">
+                    <form method="post" th:action="@{/register}" th:object="${registerDTO}">
+                        <div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+                            <div th:each="error : ${#fields.globalErrors()}" th:text="${error}"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Username</label>
+                            <input class="form-control" th:field="*{username}">
+                            <div class="text-danger" th:errors="*{username}"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input class="form-control" type="email" th:field="*{email}">
+                            <div class="text-danger" th:errors="*{email}"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Họ tên</label>
+                            <input class="form-control" th:field="*{fullName}">
+                            <div class="text-danger" th:errors="*{fullName}"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Mật khẩu</label>
+                                <input class="form-control" type="password" th:field="*{password}">
+                                <div class="text-danger" th:errors="*{password}"></div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Xác nhận mật khẩu</label>
+                                <input class="form-control" type="password" th:field="*{confirmPassword}">
+                                <div class="text-danger" th:errors="*{confirmPassword}"></div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Đăng ký và nhận OTP</button>
+                        <a class="btn btn-secondary" th:href="@{/login}">Hủy</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

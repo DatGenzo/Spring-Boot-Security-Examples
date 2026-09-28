@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head><title th:text="${creating ? 'Thêm User' : 'Sửa User'}">User</title></head>
+<body>
+<main layout:fragment="content">
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h1 class="h4 mb-0" th:text="${creating ? 'Thêm User' : 'Sửa User'}"></h1>
+        </div>
+        <div class="card-body">
+            <form method="post" th:object="${userDTO}"
+                  th:action="${creating} ? @{/users/create} : @{/users/edit/{id}(id=${userDTO.id})}">
+                <div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+                    <div th:each="error : ${#fields.globalErrors()}" th:text="${error}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input class="form-control" th:field="*{username}">
+                    <div class="text-danger" th:errors="*{username}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input class="form-control" type="email" th:field="*{email}">
+                    <div class="text-danger" th:errors="*{email}"></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Họ tên</label>
+                    <input class="form-control" th:field="*{fullName}">
+                    <div class="text-danger" th:errors="*{fullName}"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Role</label>
+                        <select class="form-select" th:field="*{roleName}">
+                            <option value="ROLE_USER">USER</option>
+                            <option value="ROLE_ADMIN">ADMIN</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3 d-flex align-items-end">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" th:field="*{enabled}">
+                            <label class="form-check-label">Enabled</label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary">Lưu</button>
+                <a class="btn btn-secondary" th:href="@{/users}">Hủy</a>
+            </form>
+            <div class="alert alert-warning mt-3" th:if="${creating}">
+                Mật khẩu mặc định của User do Admin tạo là <strong>123456</strong>.
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
